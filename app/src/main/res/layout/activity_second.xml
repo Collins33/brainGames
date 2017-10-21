@@ -12,12 +12,13 @@
         android:id="@+id/textScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0/0"
-        android:textSize="30dp"
         android:layout_alignBaseline="@+id/textView4"
         android:layout_alignBottom="@+id/textView4"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:text="0/0"
+        android:textColor="@android:color/background_light"
+        android:textSize="30dp" />
 
     <TextView
         android:id="@+id/textTime"
@@ -27,6 +28,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:text="30S"
+        android:textColor="@android:color/background_light"
         android:textSize="30dp"/>
 
     <TextView
@@ -36,16 +38,18 @@
         android:layout_marginTop="22dp"
         android:text="5*6"
         android:textSize="30dp"
-        android:layout_below="@+id/textView2"
+        android:textColor="@android:color/background_light"
+        android:layout_below="@+id/textTime"
         android:layout_centerHorizontal="true" />
 
     <GridLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="111dp"
-        android:layout_below="@+id/textView4"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textTrivia"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="27dp"
+        android:id="@+id/gridLayout">
 
         <Button
             android:id="@+id/button1"
@@ -59,6 +63,7 @@
             android:tag="0"
             android:text="4"
             android:textSize="60dp" />
+
         <Button
             android:id="@+id/button2"
             android:layout_width="wrap_content"
@@ -71,6 +76,7 @@
             android:tag="1"
             android:text="4"
             android:textSize="60dp" />
+
         <Button
             android:id="@+id/button3"
             android:layout_width="wrap_content"
@@ -83,6 +89,7 @@
             android:tag="2"
             android:text="4"
             android:textSize="60dp" />
+
         <Button
             android:id="@+id/button4"
             android:layout_width="wrap_content"
@@ -96,5 +103,16 @@
             android:text="4"
             android:textSize="60dp" />
     </GridLayout>
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="59dp"
+        android:text="Correct"
+        android:textSize="35dp"
+        android:textColor="@android:color/background_light"
+        android:layout_below="@+id/gridLayout"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
