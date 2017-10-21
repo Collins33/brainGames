@@ -1,5 +1,6 @@
 package com.example.root.braingames;
 
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,17 +12,20 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.StringTokenizer;
 
 public class secondActivity extends AppCompatActivity {
     Button startGame;
     TextView triviaSum;
     TextView results;
     TextView myScore;
+    TextView timeText;
     Button button0;
     Button button1;
     Button button2;
     Button button3;
     RelativeLayout success;
+    RelativeLayout fail;
     //location of correct answer in the layout
     int locationOfCorrectAnswer;
     int score=0;
@@ -48,8 +52,48 @@ public class secondActivity extends AppCompatActivity {
         //invisible layouts
         success=(RelativeLayout) findViewById(R.id.successLayout);
 
+        //countdown timer
 
+        countDown();
+    }
+    public void countDown(){
+        new CountDownTimer(30100,1000){
 
+            @Override
+            public void onTick(long l) {
+                timeText=(TextView) findViewById(R.id.textTime);
+                timeText.setText(String.valueOf(l/1000));
+            }
+
+            @Override
+            public void onFinish() {
+                timeText=(TextView) findViewById(R.id.textTime);
+                timeText.setText("0s");
+
+                if(score>10){
+                    success=(RelativeLayout) findViewById(R.id.successLayout);
+                    success.setAlpha(1);}
+                else{
+                    fail=(RelativeLayout) findViewById(R.id.failRelativeLayout);
+                    fail.setAlpha(1);
+                }
+
+            }
+        }.start();
+    }
+    public void startAgain(View view){
+        success=(RelativeLayout) findViewById(R.id.successLayout);
+        success.setAlpha(0);
+        fail=(RelativeLayout) findViewById(R.id.failRelativeLayout);
+        fail.setAlpha(0);
+        results=(TextView) findViewById(R.id.textView5);
+        myScore=(TextView) findViewById(R.id.textScore);
+        timeText=(TextView) findViewById(R.id.textTime);
+        results.setText("0");
+        myScore.setText("0");
+        timeText.setText("0");
+        generateNewQuestion();
+        countDown();
     }
     public void generateNewQuestion(){
         button0=(Button) findViewById(R.id.button0);
@@ -107,10 +151,8 @@ public class secondActivity extends AppCompatActivity {
 
         }
         generateNewQuestion();
-        if(score==10){
-            success=(RelativeLayout) findViewById(R.id.successLayout);
-            success.setAlpha(1);
-        }
+
+
     }
 
 }
