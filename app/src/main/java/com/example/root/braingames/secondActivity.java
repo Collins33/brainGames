@@ -17,6 +17,10 @@ public class secondActivity extends AppCompatActivity implements View.OnClickLis
     TextView triviaSum;
     TextView results;
     TextView myScore;
+    Button button0;
+    Button button1;
+    Button button2;
+    Button button3;
     //location of correct answer in the layout
     int locationOfCorrectAnswer;
     int score=0;
@@ -28,23 +32,33 @@ public class secondActivity extends AppCompatActivity implements View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
+        generateNewQuestion();
          startGame=(Button) findViewById(R.id.startGame);
          triviaSum=(TextView) findViewById(R.id.textTrivia);
          startGame.setOnClickListener(this);
         //buttons to display the answers
-        Button button0=(Button) findViewById(R.id.button0);
-        Button button1=(Button) findViewById(R.id.button1);
-        Button button2=(Button) findViewById(R.id.button2);
-        Button button3=(Button) findViewById(R.id.button3);
+         button0=(Button) findViewById(R.id.button0);
+         button1=(Button) findViewById(R.id.button1);
+         button2=(Button) findViewById(R.id.button2);
+         button3=(Button) findViewById(R.id.button3);
         //get view for score and results
         results=(TextView) findViewById(R.id.textView5);
         myScore=(TextView) findViewById(R.id.textScore);
 
+
+
+    }
+    public void generateNewQuestion(){
+        button0=(Button) findViewById(R.id.button0);
+        button1=(Button) findViewById(R.id.button1);
+        button2=(Button) findViewById(R.id.button2);
+        button3=(Button) findViewById(R.id.button3);
         //generate random numbers for the trivia
         Random rand=new Random();
         int a=rand.nextInt(21);
         int b=rand.nextInt(21);
         //set the textview
+        triviaSum=(TextView) findViewById(R.id.textTrivia);
         triviaSum.setText(Integer.toString(a) + " + " +Integer.toString(b));
         //location is based on the tag of buttons which is from 0-3
         locationOfCorrectAnswer=rand.nextInt(4);
@@ -58,7 +72,7 @@ public class secondActivity extends AppCompatActivity implements View.OnClickLis
             }
             //if it is not the location of the correct answer
             else{
-                 incorrectAnswer=rand.nextInt(41);
+                incorrectAnswer=rand.nextInt(41);
                 while(incorrectAnswer== a+b){
                     //stop generation of correct answer in wrong answer layout
                     incorrectAnswer=rand.nextInt(41);
@@ -71,7 +85,7 @@ public class secondActivity extends AppCompatActivity implements View.OnClickLis
         button1.setText(Integer.toString(answers.get(1)));
         button2.setText(Integer.toString(answers.get(2)));
         button3.setText(Integer.toString(answers.get(3)));
-
+        answers.clear();
     }
     //method to find answer
     public void getAnswer(View view){
@@ -82,8 +96,13 @@ public class secondActivity extends AppCompatActivity implements View.OnClickLis
             myScore.setText(Integer.toString(score)+"/"+ Integer.toString(numberOfQuestions));
         }
         else{
+            score+=0;
+            numberOfQuestions++;
             results.setText("Incorrect");
+            myScore.setText(Integer.toString(score)+"/"+ Integer.toString(numberOfQuestions));
+
         }
+        generateNewQuestion();
     }
     @Override
     public void onClick(View view){
