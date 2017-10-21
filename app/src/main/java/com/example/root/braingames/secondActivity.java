@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Interpolator;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -19,6 +20,7 @@ public class secondActivity extends AppCompatActivity implements View.OnClickLis
     //location of correct answer in the layout
     int locationOfCorrectAnswer;
     int score=0;
+    int numberOfQuestions;
 
     //will contain answers
     ArrayList<Integer> answers=new ArrayList<Integer>();
@@ -75,8 +77,9 @@ public class secondActivity extends AppCompatActivity implements View.OnClickLis
     public void getAnswer(View view){
         if(view.getTag().toString().equals(Integer.toString(locationOfCorrectAnswer))){
            score ++;
+            numberOfQuestions++;
             results.setText("correct");
-            myScore.setText(Integer.toString(score));
+            myScore.setText(Integer.toString(score)+"/"+ Integer.toString(numberOfQuestions));
         }
         else{
             results.setText("Incorrect");
