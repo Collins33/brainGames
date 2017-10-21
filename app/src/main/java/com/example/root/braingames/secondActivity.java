@@ -14,8 +14,12 @@ import java.util.Random;
 public class secondActivity extends AppCompatActivity implements View.OnClickListener{
     Button startGame;
     TextView triviaSum;
+    TextView results;
+    TextView myScore;
     //location of correct answer in the layout
     int locationOfCorrectAnswer;
+    int score=0;
+
     //will contain answers
     ArrayList<Integer> answers=new ArrayList<Integer>();
     @Override
@@ -30,6 +34,9 @@ public class secondActivity extends AppCompatActivity implements View.OnClickLis
         Button button1=(Button) findViewById(R.id.button1);
         Button button2=(Button) findViewById(R.id.button2);
         Button button3=(Button) findViewById(R.id.button3);
+        //get view for score and results
+        results=(TextView) findViewById(R.id.textView5);
+        myScore=(TextView) findViewById(R.id.textScore);
 
         //generate random numbers for the trivia
         Random rand=new Random();
@@ -44,7 +51,7 @@ public class secondActivity extends AppCompatActivity implements View.OnClickLis
             //if the button is the loacation of the correct answer,
             //add the correct to the arrayList
             int incorrectAnswer;
-            if(i==locationOfCorrectAnswer){
+            if(i == locationOfCorrectAnswer){
                 answers.add(a+b);
             }
             //if it is not the location of the correct answer
@@ -57,6 +64,7 @@ public class secondActivity extends AppCompatActivity implements View.OnClickLis
                 answers.add(incorrectAnswer);
             }
         }
+        //set text according to the number in the arraylist at the positions
         button0.setText(Integer.toString(answers.get(0)));
         button1.setText(Integer.toString(answers.get(1)));
         button2.setText(Integer.toString(answers.get(2)));
@@ -66,7 +74,9 @@ public class secondActivity extends AppCompatActivity implements View.OnClickLis
     //method to find answer
     public void getAnswer(View view){
         if(view.getTag().toString().equals(Integer.toString(locationOfCorrectAnswer))){
-            Log.d("correct answer","answer is correct");
+           score ++;
+            results.setText("correct");
+            myScore.setText(Integer.toString(score));
         }
     }
     @Override

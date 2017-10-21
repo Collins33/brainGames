@@ -112,12 +112,11 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="59dp"
-        android:text="Correct"
-        android:textSize="35dp"
-        android:textColor="@android:color/background_light"
         android:layout_below="@+id/gridLayout"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="59dp"
+        android:textColor="@android:color/background_light"
+        android:textSize="35dp" />
 
     <RelativeLayout
         android:layout_width="match_parent"
