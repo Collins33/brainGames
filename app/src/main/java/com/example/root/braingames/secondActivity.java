@@ -78,6 +78,9 @@ public class secondActivity extends AppCompatActivity implements View.OnClickLis
             results.setText("correct");
             myScore.setText(Integer.toString(score));
         }
+        else{
+            results.setText("Incorrect");
+        }
     }
     @Override
     public void onClick(View view){
