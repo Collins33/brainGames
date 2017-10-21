@@ -115,4 +115,38 @@
         android:layout_below="@+id/gridLayout"
         android:layout_centerHorizontal="true" />
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:background="@android:color/holo_blue_bright"
+        android:id="@+id/relativeLayoutInstructions"
+        android:layout_alignTop="@+id/textTrivia"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+        <Button
+            android:id="@+id/startGame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="I UNDERSTAND"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="116dp"
+            android:layout_marginStart="116dp" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="GET AS MANY AS POSSIBLE CORRECT BEFORE TIME RUNS OUT"
+            android:textSize="20dp"
+            android:layout_marginTop="128dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:textAlignment="center"/>
+    </RelativeLayout>
+
+
+
 </RelativeLayout>
