@@ -12,7 +12,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class secondActivity extends AppCompatActivity implements View.OnClickListener{
+public class secondActivity extends AppCompatActivity {
     Button startGame;
     TextView triviaSum;
     TextView results;
@@ -21,6 +21,7 @@ public class secondActivity extends AppCompatActivity implements View.OnClickLis
     Button button1;
     Button button2;
     Button button3;
+    RelativeLayout success;
     //location of correct answer in the layout
     int locationOfCorrectAnswer;
     int score=0;
@@ -33,9 +34,9 @@ public class secondActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
         generateNewQuestion();
-         startGame=(Button) findViewById(R.id.startGame);
+
          triviaSum=(TextView) findViewById(R.id.textTrivia);
-         startGame.setOnClickListener(this);
+
         //buttons to display the answers
          button0=(Button) findViewById(R.id.button0);
          button1=(Button) findViewById(R.id.button1);
@@ -44,6 +45,8 @@ public class secondActivity extends AppCompatActivity implements View.OnClickLis
         //get view for score and results
         results=(TextView) findViewById(R.id.textView5);
         myScore=(TextView) findViewById(R.id.textScore);
+        //invisible layouts
+        success=(RelativeLayout) findViewById(R.id.successLayout);
 
 
 
@@ -87,6 +90,7 @@ public class secondActivity extends AppCompatActivity implements View.OnClickLis
         button3.setText(Integer.toString(answers.get(3)));
         answers.clear();
     }
+
     //method to find answer
     public void getAnswer(View view){
         if(view.getTag().toString().equals(Integer.toString(locationOfCorrectAnswer))){
@@ -103,12 +107,10 @@ public class secondActivity extends AppCompatActivity implements View.OnClickLis
 
         }
         generateNewQuestion();
-    }
-    @Override
-    public void onClick(View view){
-        if (view==startGame){
-            RelativeLayout relativeLayout=(RelativeLayout) findViewById(R.id.relativeLayoutInstructions);
-            relativeLayout.setAlpha(0);
+        if(score==10){
+            success=(RelativeLayout) findViewById(R.id.successLayout);
+            success.setAlpha(1);
         }
     }
+
 }
