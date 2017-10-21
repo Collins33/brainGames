@@ -65,7 +65,9 @@ public class secondActivity extends AppCompatActivity implements View.OnClickLis
     }
     //method to find answer
     public void getAnswer(View view){
-        Log.d("tag",(String) view.getTag());
+        if(view.getTag().toString().equals(Integer.toString(locationOfCorrectAnswer))){
+            Log.d("correct answer","answer is correct");
+        }
     }
     @Override
     public void onClick(View view){
