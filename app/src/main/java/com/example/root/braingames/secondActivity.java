@@ -86,11 +86,14 @@ public class secondActivity extends AppCompatActivity {
         success.setAlpha(0);
         fail=(RelativeLayout) findViewById(R.id.failRelativeLayout);
         fail.setAlpha(0);
+        score=0;
+        numberOfQuestions=0;
         results=(TextView) findViewById(R.id.textView5);
         myScore=(TextView) findViewById(R.id.textScore);
         timeText=(TextView) findViewById(R.id.textTime);
-        results.setText("0");
-        myScore.setText("0");
+        results.setText(Integer.toString(score));
+        myScore.setText(Integer.toString(score)+"/"+ Integer.toString(numberOfQuestions));
+
         timeText.setText("0");
         generateNewQuestion();
         countDown();
