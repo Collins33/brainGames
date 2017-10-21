@@ -2,6 +2,7 @@ package com.example.root.braingames;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
@@ -61,6 +62,10 @@ public class secondActivity extends AppCompatActivity implements View.OnClickLis
         button2.setText(Integer.toString(answers.get(2)));
         button3.setText(Integer.toString(answers.get(3)));
 
+    }
+    //method to find answer
+    public void getAnswer(View view){
+        Log.d("tag",(String) view.getTag());
     }
     @Override
     public void onClick(View view){

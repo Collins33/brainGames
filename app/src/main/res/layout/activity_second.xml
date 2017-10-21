@@ -62,7 +62,8 @@
             android:layout_rowWeight="1"
             android:tag="0"
             android:text="4"
-            android:textSize="60dp" />
+            android:textSize="60dp"
+            android:onClick="getAnswer"/>
 
         <Button
             android:id="@+id/button1"
@@ -73,7 +74,8 @@
             android:layout_gravity="fill"
             android:layout_row="1"
             android:layout_rowWeight="1"
-            android:tag="1"
+            android:onClick="getAnswer"
+            android:tag="2"
             android:text="4"
             android:textSize="60dp" />
 
@@ -86,7 +88,8 @@
             android:layout_gravity="fill"
             android:layout_row="0"
             android:layout_rowWeight="1"
-            android:tag="2"
+            android:onClick="getAnswer"
+            android:tag="1"
             android:text="4"
             android:textSize="60dp" />
 
@@ -99,9 +102,10 @@
             android:layout_gravity="fill"
             android:layout_row="1"
             android:layout_rowWeight="1"
-            android:tag="0"
+            android:tag="3"
             android:text="4"
-            android:textSize="60dp" />
+            android:textSize="60dp"
+            android:onClick="getAnswer"/>
     </GridLayout>
 
     <TextView
