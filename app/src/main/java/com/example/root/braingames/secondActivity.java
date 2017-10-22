@@ -69,6 +69,15 @@ public class secondActivity extends AppCompatActivity {
             public void onFinish() {
                 timeText=(TextView) findViewById(R.id.textTime);
                 timeText.setText("0s");
+                button0=(Button) findViewById(R.id.button0);
+                button1=(Button) findViewById(R.id.button1);
+                button2=(Button) findViewById(R.id.button2);
+                button3=(Button) findViewById(R.id.button3);
+                //deactivate buttons
+                button0.setEnabled(false);
+                button1.setEnabled(false);
+                button2.setEnabled(false);
+                button3.setEnabled(false);
 
                 if(score>10){
                     success=(RelativeLayout) findViewById(R.id.successLayout);
@@ -82,6 +91,10 @@ public class secondActivity extends AppCompatActivity {
         }.start();
     }
     public void startAgain(View view){
+        button0.setEnabled(true);
+        button1.setEnabled(true);
+        button2.setEnabled(true);
+        button3.setEnabled(true);
         success=(RelativeLayout) findViewById(R.id.successLayout);
         success.setAlpha(0);
         fail=(RelativeLayout) findViewById(R.id.failRelativeLayout);
