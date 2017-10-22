@@ -1,5 +1,6 @@
 package com.example.root.braingames;
 
+import android.graphics.Typeface;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +10,8 @@ import android.view.animation.Interpolator;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -40,6 +43,17 @@ public class secondActivity extends AppCompatActivity {
         generateNewQuestion();
 
          triviaSum=(TextView) findViewById(R.id.textTrivia);
+        //styling the activity
+        TextView score=(TextView) findViewById(R.id.textScore);
+        TextView time=(TextView) findViewById(R.id.textTime);
+        TextView trivia=(TextView) findViewById(R.id.textTrivia);
+        TextView answer=(TextView) findViewById(R.id.textView5);
+
+        Typeface amatic=Typeface.createFromAsset(getAssets(),"fonts/Amatic-Bold.ttf");
+        score.setTypeface(amatic);
+        time.setTypeface(amatic);
+        trivia.setTypeface(amatic);
+        answer.setTypeface(amatic);
 
         //buttons to display the answers
          button0=(Button) findViewById(R.id.button0);
