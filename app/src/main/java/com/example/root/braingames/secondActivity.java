@@ -18,7 +18,8 @@ import java.util.Random;
 import java.util.StringTokenizer;
 
 public class secondActivity extends AppCompatActivity {
-    Button startGame;
+    Button startGame1;
+    Button startGame2;
     TextView triviaSum;
     TextView results;
     TextView myScore;
@@ -60,17 +61,23 @@ public class secondActivity extends AppCompatActivity {
          button1=(Button) findViewById(R.id.button1);
          button2=(Button) findViewById(R.id.button2);
          button3=(Button) findViewById(R.id.button3);
+         startGame1=(Button) findViewById(R.id.startGameAgain);
+         startGame2=(Button) findViewById(R.id.button);
         //get view for score and results
         results=(TextView) findViewById(R.id.textView5);
         myScore=(TextView) findViewById(R.id.textScore);
         //invisible layouts
         success=(RelativeLayout) findViewById(R.id.successLayout);
+        startGame1.setEnabled(false);
+        startGame2.setEnabled(false);
 
         //countdown timer
 
         countDown();
     }
     public void countDown(){
+        results=(TextView) findViewById(R.id.textView5);
+        myScore=(TextView) findViewById(R.id.textScore);
         new CountDownTimer(30100,1000){
 
             @Override
@@ -92,6 +99,8 @@ public class secondActivity extends AppCompatActivity {
                 button1.setEnabled(false);
                 button2.setEnabled(false);
                 button3.setEnabled(false);
+                startGame1.setEnabled(true);
+                startGame2.setEnabled(true);
 
                 if(score>10){
                     success=(RelativeLayout) findViewById(R.id.successLayout);
