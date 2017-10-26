@@ -114,19 +114,29 @@ public class secondActivity extends AppCompatActivity {
         }.start();
     }
     public void startAgain(View view){
+        //get view from the invisible layouts
+        results=(TextView) findViewById(R.id.textView5);
+        myScore=(TextView) findViewById(R.id.textScore);
+        //when the game starts,disable the play again button
+        startGame1.setEnabled(false);
+        startGame2.setEnabled(false);
+        //enable the answer buttons when the user plays again
         button0.setEnabled(true);
         button1.setEnabled(true);
         button2.setEnabled(true);
         button3.setEnabled(true);
+        //make the layouts that pop up invisible
         success=(RelativeLayout) findViewById(R.id.successLayout);
         success.setAlpha(0);
         fail=(RelativeLayout) findViewById(R.id.failRelativeLayout);
         fail.setAlpha(0);
+        //reset the score and number of questions back to 0
         score=0;
         numberOfQuestions=0;
         results=(TextView) findViewById(R.id.textView5);
         myScore=(TextView) findViewById(R.id.textScore);
         timeText=(TextView) findViewById(R.id.textTime);
+        //set the score to 0
         results.setText(Integer.toString(score));
         myScore.setText(Integer.toString(score)+"/"+ Integer.toString(numberOfQuestions));
 
